@@ -74,15 +74,15 @@
         /*............................... Main menu .........................*/
 
         #news-suggestions{
-            width: 300px;  
+            width: 400px;  
             overflow-x: auto;
-            margin-top: 35px;
+            margin-top: -3px;
             white-space: nowrap;
             /* background-color: bisque; */
         }
         #news-suggestions h1{
             margin: 0;
-            padding: 12px;
+            padding: 8px;
             display: inline-block;
             font-family: "Urbanist", sans-serif;
             cursor: pointer;
@@ -90,51 +90,59 @@
 
         }
 
+        @media (min-width: 2000px) {
+        #news-suggestions {
+            width: 400%; /* Adjust as needed */
+            max-width: 1000px; /* Set maximum width */
+            height: auto; /* Set height to auto for responsiveness */
+    }
+        }
+
         #home{
-            color: black;
+            color: rgb(122, 121, 121);
             font-size: 20px;
-            background-color: rgb(255, 253, 253);
+            /* background-color: rgb(255, 253, 253); */
             width: 56px;
             height: 20px;
             border-radius: 20px;
         }
 
         #trending {
-            color: black;
+            color: rgb(122, 121, 121);
             font-size: 20px;
-            background-color: rgb(255, 253, 253);
+            /* background-color: rgb(255, 253, 253); */
             width: 80px;
             height: 20px;
             border-radius: 20px;
         }
         #sports{
-            color: black;
+            color: rgb(122, 121, 121);
             font-size: 20px;
-            background-color: rgb(255, 253, 253);
+            /* background-color: rgb(255, 253, 253); */
             width: 63px;
             height: 20px;
             border-radius: 20px;
         }
         #india{
-            color: black;
+            color: rgb(122, 121, 121);
             font-size: 20px; 
-            background-color: rgb(255, 253, 253);
+            /* background-color: rgb(255, 253, 253); */
             width: 54px;
             height: 20px;
             border-radius: 20px;
         }
         #entertainment{
-            color: black;
+            color: rgb(122, 121, 121);
             font-size: 20px; 
-            background-color: rgb(255, 253, 253);
+            /* background-color: rgb(255, 253, 253); */
             width: 135px;
             height: 20px;
             border-radius: 20px;
         }
         #technology{
-            color: black;
+            color: rgb(122, 121, 121);
             font-size: 20px; 
-            background-color: rgb(255, 255, 255);
+            /* background-color: rgb(255, 255, 255); */
             width: 110px;
             height: 20px;
             border-radius: 20px;
@@ -143,29 +151,33 @@
         /* ..............NEWS BODY DIV ............*/
 
         #news-body{
-            width: 90%; /* Set a default width */
-            max-width: 1000px; /* Set maximum width */
+            width: 100%; /* Set a default width */
+            max-width: 700px; /* Set maximum width */
             height: auto; /* Set height to maintain aspect ratio */
             margin-top: 30px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             background-color: white;
+            margin-left: 30px;
+            
             
         }
 
-        @media (min-width: 2500px) {
+       /* @media (min-width: 2500px) {
         #news-body {
-            width: 800%; /* Adjust as needed */
-            max-width: 1000px; /* Set maximum width */
-            height: auto; /* Set height to auto for responsiveness */
+            width: 800%; /* Adjust as needed 
+            max-width: 1000px; /* Set maximum width 
+            height: auto; /* Set height to auto for responsiveness 
     }
-        }
+        }*/
         #news-img{
-            align-content: center;
-            width: 100%;
-            height: 70%;
+            /* align-content: center; */
+            width: 80%;
+            height: auto;
             border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+            margin-top: 10px;
+            margin-left: 10%;
 
         }
         #h1-news{
@@ -176,7 +188,7 @@
     </style>
 </head>
 <body>
-
+    
     <header id="search-menu">
     <div id="search-container">
         <img id="menu-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png">
@@ -197,6 +209,7 @@
         <img id="news-img" src="https://images.news18.com/ibnlive/uploads/2024/05/shubman-gill-sai-sudharshan-gt-vs-csk-ipl-2024-2-sportzpics-feature-2024-05-9d7ac3200eb3f18aa16cc1b655846d90-16x9.jpg?impolicy=website&width=1200&height=675" >
         <h1 id="h1-news">IPL 2024: Shubman Gill, Sai Sudharshan's Centuries Power Gujarat Titans to a Thumping 35-Run Win Over Chenn - News18</h1>
     </div>
+    
 
 <script src="news.js"></script>
 </body>
