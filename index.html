@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: "Tilt Neon", sans-serif;
+            overflow-x: hidden; /* To prevent horizontal scrolling */
+            background-color: rgb(217, 237, 255);
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: "Urbanist", sans-serif;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .three-line {
+            width: 26px;
+            height: 4px;
+            background-color: black;
+            margin: 3px 0;
+            margin-right: 120px;
+        }
+
+        #search-menu {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Adjusted margin to move to top left */
+        }
+
+        #search {
+            width: 70%;
+            height: 35px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 5px;
+            font-family: "Tilt Neon", sans-serif;
+            font-size: 18px;
+        }
+
+        #menu-img {
+            width: 26px;
+            margin-right: 20px;
+        }
+
+        #search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        /*............................... Main menu .........................*/
+
+        #news-suggestions{
+            width: 300px;  
+            overflow-x: auto;
+            margin-top: 35px;
+            white-space: nowrap;
+            /* background-color: bisque; */
+        }
+        #news-suggestions h1{
+            margin: 0;
+            padding: 12px;
+            display: inline-block;
+            font-family: "Urbanist", sans-serif;
+            cursor: pointer;
+
+        }
+
+        #home{
+            color: black;
+            font-size: 20px;
+            background-color: rgb(255, 253, 253);
+            width: 56px;
+            height: 20px;
+            border-radius: 20px;
+        }
+
+        #trending {
+            color: black;
+            font-size: 20px;
+            background-color: rgb(255, 253, 253);
+            width: 80px;
+            height: 20px;
+            border-radius: 20px;
+        }
+        #sports{
+            color: black;
+            font-size: 20px;
+            background-color: rgb(255, 253, 253);
+            width: 63px;
+            height: 20px;
+            border-radius: 20px;
+        }
+        #india{
+            color: black;
+            font-size: 20px; 
+            background-color: rgb(255, 253, 253);
+            width: 54px;
+            height: 20px;
+            border-radius: 20px;
+        }
+        #entertainment{
+            color: black;
+            font-size: 20px; 
+            background-color: rgb(255, 253, 253);
+            width: 135px;
+            height: 20px;
+            border-radius: 20px;
+        }
+        #technology{
+            color: black;
+            font-size: 20px; 
+            background-color: rgb(255, 255, 255);
+            width: 110px;
+            height: 20px;
+            border-radius: 20px;
+        }
+
+        /* ..............NEWS BODY DIV ............*/
+
+        #news-body{
+            width: 325px; /* Adjust this value as needed */
+            max-width: 400px; /* Set maximum width */
+            height: 180px; /* Set height to 0 to maintain aspect ratio */
+            /* padding-top: 30%; Set padding-top to create a 2:1 aspect ratio (height = width / 2) */
+            background-color: white; /* Background color */
+            /* margin: 0 auto; */
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="search-menu">
+    <div id="search-container">
+        <img id="menu-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png">
+        <input type="search" id="search">
+    </div>
+    </header>
+
+    <div id="news-suggestions">
+        <h1 class="news-sugg" onclick="getnewsData('home')" id="home">Home</h1>
+        <h1 class="news-sugg" onclick="getnewsData('trending')" id="trending">Trending</h1>
+        <h1 class="news-sugg" onclick="getnewsData('sports')" id="sports">Sports</h1>
+        <h1 class="news-sugg" onclick="getnewsData('india')" id="india">India</h1>
+        <h1 class="news-sugg" onclick="getnewsData('entertainment')" id="entertainment">Entertainment</h1>
+        <h1 class="news-sugg" onclick="getnewsData('technology')" id="technology">Technology</h1>
+    </div>
+
+    <div id="news-body">
+        
+    </div>
+
+<script src="news.js"></script>
+</body>
+</html>
