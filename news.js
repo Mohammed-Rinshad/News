@@ -100,7 +100,7 @@ async function newsData(menuToshow){
     }
 
     // alert('function Ok')
-    for (let i = 0; i < 99 ; i++) {
+    for (let i = 1; i < 99 ; i++) {
     // console.log(dataNews.articles[i].title)
     // console.log(dataNews.articles[i].urlToImage)
     console.log(dataNews.articles);
