@@ -12,9 +12,9 @@ let newsTitle = document.getElementById('h1-news')
 
 async function newsData(menuToshow){
     let currentDate = new Date();
-    // let apiKey = 'd91c889a547145298f91beedaf7d0c03'
-    let apiKey2 = '614e6a6713c54d94b449f5cffe92568b'
-    const url = `https://newsapi.org/v2/everything?q=${menuToshow}&from=${currentDate}&sortBy=publishedAt&apiKey=${apiKey2}`
+    let apiKey = 'd91c889a547145298f91beedaf7d0c03'
+    // let apiKey2 = '614e6a6713c54d94b449f5cffe92568b'
+    const url = `https://newsapi.org/v2/everything?q=${menuToshow}&from=${currentDate}&sortBy=publishedAt&apiKey=${apiKey}`
     let response = await fetch(url)
     let dataNews = await response.json()
     
