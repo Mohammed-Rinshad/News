@@ -12,13 +12,22 @@ let newsTitle = document.getElementById('h1-news')
 
 async function newsData(menuToshow){
     let currentDate = new Date();
-    let apiKey = 'd91c889a547145298f91beedaf7d0c03'
+    // let apiKey = 'd91c889a547145298f91beedaf7d0c03'
     // let apiKey2 = '614e6a6713c54d94b449f5cffe92568b'
-    const url = `https://newsapi.org/v2/everything?q=${menuToshow}&from=${currentDate}&sortBy=publishedAt&apiKey=${apiKey}`
-    let response = await fetch(url)
+    // const url = `https://newsapi.org/v2/everything?q=${menuToshow}&from=${currentDate}&sortBy=publishedAt&apiKey=${apiKey}`
+    const url = 'https://fastnewswebsite.netlify.app/.netlify/functions/getdata'
+    let response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            uniqueKey: 'abcd1234buq3gewfyr47tfyu64264378',
+            newsVar: menuToshow
+        })
+    })
     let dataNews = await response.json()
+    console.log(dataNews)
     
-    if(menuToshow === 'home'){
+    
+    if(menuToshow === 'home' ){
         home.style.color = "black"
         // home.style.backgroundColor = "black"
         trending.style.color = "rgb(122, 121, 121)"
@@ -31,6 +40,7 @@ async function newsData(menuToshow){
         // entertainment.style.backgroundColor = "white"
         technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "white"
+
     } else if(menuToshow === 'trending'){
         trending.style.color = "black"
         // trending.style.backgroundColor = "black"
@@ -44,6 +54,8 @@ async function newsData(menuToshow){
         // entertainment.style.backgroundColor = "white"
         technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "white"
+
+
     } else if(menuToshow === 'sports'){
         sports.style.color = "black"
         // sports.style.backgroundColor = "black"
@@ -100,10 +112,10 @@ async function newsData(menuToshow){
     }
 
     // alert('function Ok')
-    for (let i = 1; i < 99 ; i++) {
+    for (let i = 0; i < dataNews.length ; i++) {
     // console.log(dataNews.articles[i].title)
     // console.log(dataNews.articles[i].urlToImage)
-    console.log(dataNews.articles);
+    // console.log(dataNews.articles);
     
     let newDiv = document.createElement('div')
     newsBody.appendChild(newDiv)
@@ -117,19 +129,19 @@ async function newsData(menuToshow){
     newsTitle.appendChild(createTitle)
     createTitle.classList.add('h1-news')
 
-    createTitle = dataNews.articles[i].title
+    createTitle = dataNews[i].title
     newDiv.textContent = createTitle
-    createImg.src = dataNews.articles[i].urlToImage
+    createImg.src = dataNews[i].urlToImage
     newDiv.appendChild(createImg)
 
-    if(dataNews.articles[i].urlToImage === null && dataNews.articles[i].title !== "[Removed]"){
+    if(dataNews[i].urlToImage === null && dataNews[i].title !== "[Removed]"){
         createImg.src = "https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"
-    }else if(dataNews.articles[i].title === "[Removed]"){
+    }else if(dataNews[i].title === "[Removed]"){
         createImg.src = "https://filestore.community.support.microsoft.com/api/images/2f12ab59-a2a9-4f40-847f-76dc75093468?upload=true"
     }
     
     newDiv.addEventListener('click' ,() => {
-        window.open(dataNews.articles[i].url)
+        window.open(dataNews[i].url)
 
     })
     
