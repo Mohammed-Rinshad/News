@@ -7,20 +7,23 @@ let technology = document.getElementById('technology')
 let newsBody = document.getElementById('news-body')
 let newsImg = document.getElementById('news-img')
 let newsTitle = document.getElementById('h1-news')
-
+let search = document.getElementById('search')
+let searchBtn = document.getElementById('btn')
 
 
 async function newsData(menuToshow){
     // let currentDate = new Date();
     // let apiKey = 'd91c889a547145298f91beedaf7d0c03'
     // let apiKey2 = '614e6a6713c54d94b449f5cffe92568b'
-    // const url = `https://newsapi.org/v2/everything?q=${menuToshow}&from=${currentDate}&sortBy=publishedAt&apiKey=${apiKey}`
+    // const url = `https://newsapi.org/v2/everything?q=${newsVar}&from=${currentDate}&sortBy=publishedAt&apiKey=${apiKey}`
     const url = 'https://fastnewswebsite.netlify.app/.netlify/functions/getdata'
     let response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify({
             uniqueKey: 'abcd1234buq3gewfyr47tfyu64264378',
+            // newsVar: search.value,
             newsVar: menuToshow
+
         })
     })
     let dataNews = await response.json()
@@ -28,6 +31,7 @@ async function newsData(menuToshow){
     
     
     if(menuToshow === 'home' ){
+        newsBody.innerHTML = ''
         home.style.color = "black"
         // home.style.backgroundColor = "black"
         trending.style.color = "rgb(122, 121, 121)"
@@ -42,6 +46,7 @@ async function newsData(menuToshow){
         // technology.style.backgroundColor = "white"
 
     } else if(menuToshow === 'trending'){
+        newsBody.innerHTML = ''
         trending.style.color = "black"
         // trending.style.backgroundColor = "black"
         home.style.color = "rgb(122, 121, 121)"
@@ -57,6 +62,7 @@ async function newsData(menuToshow){
 
 
     } else if(menuToshow === 'sports'){
+        newsBody.innerHTML = ''
         sports.style.color = "black"
         // sports.style.backgroundColor = "black"
         trending.style.color = "rgb(122, 121, 121)"
@@ -70,6 +76,7 @@ async function newsData(menuToshow){
         technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "white"
     }else if(menuToshow === 'india'){
+        newsBody.innerHTML = ''
         sports.style.color = "rgb(122, 121, 121)"
         // sports.style.backgroundColor = "white"
         trending.style.color = "rgb(122, 121, 121)"
@@ -83,6 +90,7 @@ async function newsData(menuToshow){
         technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "white"
     }else if(menuToshow === 'entertainment'){
+        newsBody.innerHTML = ''
         entertainment.style.color = "black"
         // entertainment.style.backgroundColor = "black"
         sports.style.color = "rgb(122, 121, 121)"
@@ -97,7 +105,22 @@ async function newsData(menuToshow){
         // technology.style.backgroundColor = "white"
 
     }else if(menuToshow === 'technology'){
+        newsBody.innerHTML = ''
         technology.style.color = "black"
+        // technology.style.backgroundColor = "black"
+        entertainment.style.color = "rgb(122, 121, 121)"
+        // entertainment.style.backgroundColor = "white"
+        sports.style.color = "rgb(122, 121, 121)"
+        // sports.style.backgroundColor = "white"
+        trending.style.color = "rgb(122, 121, 121)"
+        // trending.style.backgroundColor = "white"
+        home.style.color = "rgb(122, 121, 121)"
+        // home.style.backgroundColor = "white"
+        india.style.color = "rgb(122, 121, 121)"
+        // india.style.backgroundColor = "white"
+    }else if(menuToshow === search.value) {
+        newsBody.innerHTML = ''
+        technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "black"
         entertainment.style.color = "rgb(122, 121, 121)"
         // entertainment.style.backgroundColor = "white"
@@ -111,12 +134,8 @@ async function newsData(menuToshow){
         // india.style.backgroundColor = "white"
     }
 
-    // alert('function Ok')
-    for (let i = 0; i < dataNews.length ; i++) {
-    // console.log(dataNews.articles[i].title)
-    // console.log(dataNews.articles[i].urlToImage)
-    // console.log(dataNews.articles);
-    
+
+    for (let i = 0; i < dataNews.length ; i++) { 
     let newDiv = document.createElement('div')
     newsBody.appendChild(newDiv)
     newDiv.classList.add('news-body')
@@ -149,6 +168,9 @@ async function newsData(menuToshow){
     }
  
 }
+
+
+
 // newsData()
 
     // let newNewsBody = document.createElement('div')
