@@ -171,7 +171,7 @@ async function newsData(menuToshow){
 
 
 
-// newsData()
+newsData('home')
 
     // let newNewsBody = document.createElement('div')
     // newsBody.appendChild(newNewsBody)
