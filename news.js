@@ -10,6 +10,12 @@ let newsTitle = document.getElementById('h1-news')
 let search = document.getElementById('search')
 let searchBtn = document.getElementById('btn')
 
+search.addEventListener('keydown', (e) =>{
+    if(e.key === 'Enter'){
+        newsData(search.value)
+    }
+})
+
 
 async function newsData(menuToshow){
     // let currentDate = new Date();
@@ -31,6 +37,7 @@ async function newsData(menuToshow){
     
     
     if(menuToshow === 'home' ){
+        search.value = ''
         newsBody.innerHTML = ''
         home.style.color = "black"
         // home.style.backgroundColor = "black"
@@ -46,6 +53,7 @@ async function newsData(menuToshow){
         // technology.style.backgroundColor = "white"
 
     } else if(menuToshow === 'trending'){
+        search.value = ''
         newsBody.innerHTML = ''
         trending.style.color = "black"
         // trending.style.backgroundColor = "black"
@@ -62,6 +70,7 @@ async function newsData(menuToshow){
 
 
     } else if(menuToshow === 'sports'){
+        search.value = ''
         newsBody.innerHTML = ''
         sports.style.color = "black"
         // sports.style.backgroundColor = "black"
@@ -76,6 +85,7 @@ async function newsData(menuToshow){
         technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "white"
     }else if(menuToshow === 'india'){
+        search.value = ''
         newsBody.innerHTML = ''
         sports.style.color = "rgb(122, 121, 121)"
         // sports.style.backgroundColor = "white"
@@ -90,6 +100,7 @@ async function newsData(menuToshow){
         technology.style.color = "rgb(122, 121, 121)"
         // technology.style.backgroundColor = "white"
     }else if(menuToshow === 'entertainment'){
+        search.value = ''
         newsBody.innerHTML = ''
         entertainment.style.color = "black"
         // entertainment.style.backgroundColor = "black"
@@ -105,6 +116,7 @@ async function newsData(menuToshow){
         // technology.style.backgroundColor = "white"
 
     }else if(menuToshow === 'technology'){
+        search.value = ''
         newsBody.innerHTML = ''
         technology.style.color = "black"
         // technology.style.backgroundColor = "black"
@@ -163,7 +175,6 @@ async function newsData(menuToshow){
         window.open(dataNews[i].url)
 
     })
-    
 
     }
  
