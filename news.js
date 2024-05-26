@@ -9,6 +9,8 @@ let newsImg = document.getElementById('news-img')
 let newsTitle = document.getElementById('h1-news')
 let search = document.getElementById('search')
 let searchBtn = document.getElementById('btn')
+let sideMenu = document.getElementById('side-menu')
+let menuLine = document.getElementsByClassName('three-line')
 
 search.addEventListener('keydown', (e) =>{
     if(e.key === 'Enter'){
@@ -183,6 +185,23 @@ async function newsData(menuToshow){
 
 
 newsData('home')
+
+    function MenuClick(){
+        if(sideMenu.style.visibility === 'hidden'){
+            sideMenu.style.visibility = 'visible'
+            for (let i = 0; i < menuLine.length; i++) {
+                let menuLine = document.getElementsByClassName('three-line')
+                menuLine[i].style.backgroundColor = 'white';
+            }
+    
+        }else{
+            sideMenu.style.visibility = 'hidden' 
+            for (let i = 0; i < menuLine.length; i++) {
+                let menuLine = document.getElementsByClassName('three-line')
+                menuLine[i].style.backgroundColor = 'black';
+            }
+        }
+    }
 
     // let newNewsBody = document.createElement('div')
     // newsBody.appendChild(newNewsBody)
