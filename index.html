@@ -5,11 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             display: flex;
@@ -50,6 +54,7 @@
             cursor: pointer;
             transition: background-color 0.5s ease-in-out,
                 transform 0.3s linear 0.2s; /* adding a 0.2s delay */
+            
         }
 
         #search-menu {
@@ -135,6 +140,7 @@
             width: 80px;
             height: 20px;
             border-radius: 20px;
+            
         }
         #sports{
             color: rgb(122, 121, 121);
@@ -187,6 +193,7 @@
             
             
         }
+        
 
        /* @media (min-width: 2500px) {
         #news-body {
@@ -197,12 +204,12 @@
         }*/
         .news-img{
             /* align-content: center; */
-            width: 80%;
+            width: 96%;
             height: auto;
             border-radius: 10px;
             /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
-            margin-top: 20px;
-            margin-left: 10%;
+            margin-bottom: -40px;
+            margin-left: 2%;
 
         }
         .h1-news{
@@ -278,6 +285,24 @@
             margin-top: 25px;
             font-family: "Urbanist", sans-serif;
         }
+        .share-img{
+            width: 27px;
+            margin-left: 45%;
+            margin-bottom: -50px;
+        }
+        .news-time{
+            margin-left: 70%;
+            font-size: 18px;
+            color:rgb(140, 137, 137);
+            font-family: "Cairo", sans-serif;
+            font-weight: 600;
+        }
+        .heart-icon{
+            margin-left: 57%;
+            font-size: 27px;
+            color: rgb(179, 177, 177);
+            margin-top: -48px;
+        }
 
     </style>
 </head>
@@ -328,6 +353,9 @@
     <div id="news-body">
         <img id="news-img">
         <h1 id="h1-news"></h1> 
+        <img id="share-img" src="" onclick="Share()">
+        <h1 id="news-time"></h1>
+        <h1 id="heart-icon"></h1>
     </div>
     
 
