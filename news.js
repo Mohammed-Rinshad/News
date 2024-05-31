@@ -13,7 +13,7 @@ let sideMenu = document.getElementById('side-menu')
 let menuLine = document.getElementsByClassName('three-line')
 let shareBtn = document.getElementById('share-img')
 let newTimeText = document.getElementById('news-time')
-let heartIcon = document.getElementById('heart-icon')
+let publishedBy = document.getElementById('publishedby')
 
     search.addEventListener('keydown', (e) =>{
         if(e.key === 'Enter'){
@@ -180,9 +180,9 @@ async function newsData(menuToshow){
     newTimeText.appendChild(newsTime)
     newsTime.classList.add('news-time')
 
-    let newHeartIcon = document.createElement('h1')
-    heartIcon.appendChild(newHeartIcon)
-    newHeartIcon.classList.add('heart-icon')
+    let newpublishedBy = document.createElement('h1')
+    publishedBy.appendChild(newpublishedBy)
+    newpublishedBy.classList.add('publishedby')
 
     createTitle = dataNews[i].title
     newDiv.textContent = createTitle
@@ -192,17 +192,22 @@ async function newsData(menuToshow){
     newDiv.appendChild(shareImg)
     newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
     newDiv.appendChild(newsTime)
-    newHeartIcon.innerHTML  = '&#x2764;'
-    newDiv.appendChild(newHeartIcon)
+    newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '....'
+    newDiv.appendChild(newpublishedBy)
 
 
     if(dataNews[i].urlToImage === null && dataNews[i].title !== "[Removed]"){
         createImg.src = "https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"
         
     }else if(dataNews[i].title === "[Removed]"){
-        createImg.src = "https://filestore.community.support.microsoft.com/api/images/2f12ab59-a2a9-4f40-847f-76dc75093468?upload=true"
-        shareImg.src = 'https://htmlcolorcodes.com/assets/images/colors/white-color-solid-background-1920x1080.png'
-        newsTime.textContent = '‎ '
+        // createImg.src = "https://filestore.community.support.microsoft.com/api/images/2f12ab59-a2a9-4f40-847f-76dc75093468?upload=true"
+        // shareImg.src = 'https://htmlcolorcodes.com/assets/images/colors/white-color-solid-background-1920x1080.png'
+        // newsTime.textContent = '‎ '
+
+        newpublishedBy.style.display = "none"
+        newDiv.style.display = "none"
+        newsTime.style.display = "none"
+        shareImg.style.display = "none"
     }
 
     if(differenceInDays.toFixed(0) > 1){
@@ -210,13 +215,30 @@ async function newsData(menuToshow){
     }else{
         newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
     }
+
+    // if(dataNews[i].author.length < 8){
+    //     newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '...'
+    // }else{
+    //     newpublishedBy.textContent  = dataNews[i].author
+    // }
     
-    newDiv.addEventListener('click' ,() => {
-        window.open(dataNews[i].url)
+    
+    shareImg.addEventListener('click' ,() => {
+        // window.open(dataNews[i].url)
+        navigator.share({
+            url: dataNews[i].url
+        })
 
     })
 
     }
+
+    // createImg.addEventListener('click' ,() => {
+    //     console.log('hgbshdbg')
+    //     navigator.share({
+    //         url: dataNews[i].url
+    //     })
+    // })
  
 }
 
