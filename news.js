@@ -14,6 +14,7 @@ let menuLine = document.getElementsByClassName('three-line')
 let shareBtn = document.getElementById('share-img')
 let newTimeText = document.getElementById('news-time')
 let publishedBy = document.getElementById('publishedby')
+let logoImg = document.getElementById('logo-img')
 
     search.addEventListener('keydown', (e) =>{
         if(e.key === 'Enter'){
@@ -39,6 +40,8 @@ async function newsData(menuToshow){
     })
     let dataNews = await response.json()
     console.log(dataNews)
+
+    // const logoApiUrl = 'https://api.newslogoservice.com/getLogo';
     
     
     if(menuToshow === 'home' ){
@@ -152,14 +155,13 @@ async function newsData(menuToshow){
     }
 
     let currentDate = new Date();
-    
-
     for (let i = 0; i < dataNews.length ; i++) { 
 
     let publishedDate = new Date(dataNews[i].publishedAt);
     const differenceInMilliseconds = currentDate - publishedDate;
     const differenceInDays = differenceInMilliseconds / (1000 * 60 * 60 * 24);
-    
+    const differenceInHours = differenceInMilliseconds / (1000 * 60 * 60);
+
     let newDiv = document.createElement('div')
     newsBody.appendChild(newDiv)
     newDiv.classList.add('news-body')
@@ -184,6 +186,10 @@ async function newsData(menuToshow){
     publishedBy.appendChild(newpublishedBy)
     newpublishedBy.classList.add('publishedby')
 
+    // let newLogoImg = document.createElement('img')
+    // logoImg.appendChild(newLogoImg)
+    // newLogoImg.classList.add('logo-img')
+
     createTitle = dataNews[i].title
     newDiv.textContent = createTitle
     createImg.src = dataNews[i].urlToImage
@@ -194,6 +200,8 @@ async function newsData(menuToshow){
     newDiv.appendChild(newsTime)
     newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '....'
     newDiv.appendChild(newpublishedBy)
+    // newLogoImg.src = 'https://logowik.com/content/uploads/images/ndtv9182.logowik.com.webp'
+    // newDiv.appendChild(newLogoImg)
 
 
     if(dataNews[i].urlToImage === null && dataNews[i].title !== "[Removed]"){
@@ -210,11 +218,21 @@ async function newsData(menuToshow){
         shareImg.style.display = "none"
     }
 
-    if(differenceInDays.toFixed(0) > 1){
-        newsTime.textContent = `${differenceInDays.toFixed(0)} days ago`
+    if(differenceInHours > 23){
+        if(differenceInDays.toFixed(0) > 1){
+            newsTime.textContent = `${differenceInDays.toFixed(0)} days ago`
+        }else{
+            newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
+        }
     }else{
-        newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
+        newsTime.textContent = `${differenceInHours.toFixed(0)} hours ago`
     }
+
+    // if(differenceInDays.toFixed(0) > 1){
+    //     newsTime.textContent = `${differenceInDays.toFixed(0)} days ago`
+    // }else{
+    //     newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
+    // }
 
     // if(dataNews[i].author.length < 8){
     //     newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '...'
@@ -233,12 +251,11 @@ async function newsData(menuToshow){
 
     }
 
-    // createImg.addEventListener('click' ,() => {
-    //     console.log('hgbshdbg')
-    //     navigator.share({
-    //         url: dataNews[i].url
-    //     })
+    // newDiv.addEventListener('click' ,() => {
+    //     window.open(dataNews[i].url)
     // })
+
+
  
 }
 
