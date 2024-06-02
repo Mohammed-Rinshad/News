@@ -198,8 +198,8 @@ async function newsData(menuToshow){
     newDiv.appendChild(shareImg)
     newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
     newDiv.appendChild(newsTime)
-    newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '....'
-    newDiv.appendChild(newpublishedBy)
+    // newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '....'
+    // newDiv.appendChild(newpublishedBy)
     // newLogoImg.src = 'https://logowik.com/content/uploads/images/ndtv9182.logowik.com.webp'
     // newDiv.appendChild(newLogoImg)
 
@@ -226,6 +226,13 @@ async function newsData(menuToshow){
         }
     }else{
         newsTime.textContent = `${differenceInHours.toFixed(0)} hours ago`
+    }
+
+    if(dataNews[i].author === null){
+        newpublishedBy.textContent = 'Unknown'
+    }else{
+        newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '....'
+        newDiv.appendChild(newpublishedBy)
     }
 
     // if(differenceInDays.toFixed(0) > 1){
