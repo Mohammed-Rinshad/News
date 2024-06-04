@@ -198,6 +198,10 @@ async function newsData(menuToshow){
     newDiv.appendChild(shareImg)
     newsTime.textContent = `${differenceInDays.toFixed(0)} day ago`
     newDiv.appendChild(newsTime)
+    createImg.style.cursor = "pointer"
+    shareImg.style.cursor = "pointer"
+    
+
     // newpublishedBy.textContent  = dataNews[i].author.substring(0,8) + '....'
     // newDiv.appendChild(newpublishedBy)
     // newLogoImg.src = 'https://logowik.com/content/uploads/images/ndtv9182.logowik.com.webp'
@@ -256,11 +260,13 @@ async function newsData(menuToshow){
 
     })
 
+    newDiv.addEventListener('click' ,() => {
+        window.open(dataNews[i].url)
+    })
+
     }
 
-    // newDiv.addEventListener('click' ,() => {
-    //     window.open(dataNews[i].url)
-    // })
+
 
 
  
